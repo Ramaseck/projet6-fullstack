@@ -4,10 +4,10 @@ $mysqli = new mysqli("localhost", "root", "", "mabase");
 
 // Vérifier la connexion
 if ($mysqli->connect_error) {
-    die("La connexion à la base de données a échoué : " . $mysqli->connect_error);
+    die("La connexion  échoué : " . $mysqli->connect_error);
 }
 
-// Opération 1 : Enregistrer les produits stockés dans la base de données
+//  Enregistrer les produits stockés dans la base de données
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["ajouter_produit"])) {
     $nomProduit = $_POST["nom_produit"];
     $quantiteStock = $_POST["quantite_stock"];
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["ajouter_produit"])) {
     }
 }
 
-// Opération 2 : Enregistrer les produits pris du stock
+//  Enregistrer les produits pris du stock
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["prendre_produit"])) {
     $nomProduit = $_POST["nom_produit"];
     $quantitePrise = $_POST["quantite_prise"];
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["prendre_produit"])) {
     }
 }
 
-// Opération 3 : Vérifier la quantité des produits disponibles en stock
+//  Vérifier la quantité des produits disponibles en stock
 $result = $mysqli->query("SELECT * FROM produits");
 ?>
 
